@@ -113,8 +113,8 @@ https://github.com/sdesabbata/covid-19-uk-analysis
 Contains data from the UK Government and the Office 
 for National Statistics.
 Note: Population estimates mid-year 2018. The 
-categoris in the legend include the minimum value
-and exclude the maximum value of the braket.",
+categories in the legend include the minimum value
+and exclude the maximum value of the bracket.",
     position = c ("left", "center"),
     size = 0.4
   ) +
