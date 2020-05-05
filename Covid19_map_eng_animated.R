@@ -115,7 +115,7 @@ for National Statistics.
 Note: Population estimates mid-year 2018. The 
 categoris in the legend include the minimum value
 and exclude the maximum value of the braket.",
-    position =c ("right", "top"),
+    position = c ("left", "center"),
     size = 0.4
   ) +
   tm_facets(along = "covid19_date", free.coords = FALSE)

@@ -7,7 +7,7 @@
 The *Data* folder conteined in this folder is set up to store data from the [UK Governament][Coronavirus (COVID-19) in the UK governament page](https://coronavirus.data.gov.uk/#local-authorities) and the [Office for National Statistics](http://dati.istat.it).
 
 - `coronavirus-cases_latest.csv`
-    - [Covid-19 cases]((https://coronavirus.data.gov.uk/#local-authorities)
+    - [Covid-19 cases](https://coronavirus.data.gov.uk/#local-authorities)
     - See also `Get_UK_Covid19_data.R`
 - `ukmidyearestimates20182019ladcodes.csv`: 
     - [Estimates of the population for the UK, England and Wales, Scotland and Northern Ireland](https://www.ons.gov.uk/peoplepopulationandcommunity/populationandmigration/populationestimates/datasets/populationestimatesforukenglandandwalesscotlandandnorthernireland).
