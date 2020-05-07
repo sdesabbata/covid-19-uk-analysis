@@ -122,6 +122,7 @@ and exclude the maximum value of the bracket.",
     position = c ("left", "center"),
     size = 0.4
   ) +
+  tm_scale_bar(position=c("right", "bottom")) +
   tm_facets(along = "covid19_date", free.coords = FALSE)
 
 # Generate gif

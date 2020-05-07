@@ -42,3 +42,7 @@ vignettes/*.pdf
 Data/Gov/*
 Data/Population/*
 Data/Shapefiles/*
+
+# Other
+.DS_Store
+*/.DS_Store
