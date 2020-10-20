@@ -209,7 +209,7 @@ covid19_cases_facets <- tm_layout(
   tm_shape(uk_covid19_shp) +
   tm_polygons(
     "seven_day_rate_newCasesBySpecimenDate",
-    title = "Seven–day rolling rate of\nnew cases by specimen",
+    title = "Seven–day rolling rate of\nnew cases per 100,000 population",
     n = 7,
     style = "fixed",
     breaks = c(
