@@ -171,8 +171,13 @@ uk_covid19 <- st_as_sf(lower_tier_la) %>%
     by = c("lad19cd" = "covid19_area_code")
   ) %>%
   select(lad19cd, covid19_week_ending, seven_day_rate_newCasesBySpecimenDate) %>%
-  # Set missing values to zero
-  complete(lad19cd, covid19_week_ending, fill = list(seven_day_rate_newCasesBySpecimenDate = 0)) %>%
+  # Set missing values to NA
+  complete(lad19cd, covid19_week_ending) %>%
+  #
+  # Alternatively
+  # # Set missing values to zero
+  # complete(lad19cd, covid19_week_ending, fill = list(seven_day_rate_newCasesBySpecimenDate = 0)) %>%
+  #
   # Drop rows created with NA date
   filter(!is.na(covid19_week_ending))
 
@@ -188,6 +193,13 @@ uk_covid19_shp <- st_as_sf(lower_tier_la) %>%
   
 # Mapping -----------------------------------------------------------------
 
+max_value <- 
+  uk_covid19_shp %>% 
+  filter(!is.na(seven_day_rate_newCasesBySpecimenDate)) %>%
+  pull(seven_day_rate_newCasesBySpecimenDate) %>%
+  max() %>%
+  ceiling()
+
 # Maps
 covid19_cases_facets <- tm_layout(
     frame = FALSE,
@@ -202,10 +214,7 @@ covid19_cases_facets <- tm_layout(
     style = "fixed",
     breaks = c(
       0, 11, 51, 101, 201, 401,
-      uk_covid19_shp %>% 
-        pull(seven_day_rate_newCasesBySpecimenDate) %>%
-        max() %>%
-        ceiling()
+      max_value
     ),
     as.count = TRUE,
     palette = "viridis",
@@ -226,7 +235,11 @@ for National Statistics.",
     size = 0.4
   ) +
   #tm_scale_bar(position=c("right", "bottom")) +
-  tm_facets(along = "covid19_week_ending", free.coords = FALSE, drop.NA.facets = TRUE)
+  tm_facets(
+    along = "covid19_week_ending", 
+    free.coords = FALSE, 
+    drop.NA.facets = TRUE
+  )
 
 # Generate gif
 tmap_animation(
