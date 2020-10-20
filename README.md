@@ -6,6 +6,8 @@ Covid data available from the [Coronavirus (COVID-19) in the UK governament page
 
 ## United Kingdom
 
+![](Maps/covid19_cases_uk_7DayRateNew_anim_20200301_20201017.gif)
+
 ![](Maps/covid19_cases_uk_fixed_anim_20200301-20201019.gif)
 
 
