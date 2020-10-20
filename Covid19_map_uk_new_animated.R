@@ -200,7 +200,13 @@ covid19_cases_facets <- tm_layout(
     title = "Seven–day rolling rate of\nnew cases by specimen",
     n = 7,
     style = "fixed",
-    breaks = c(0, 5, 10, 25, 50, 100, 250, 500),
+    breaks = c(
+      0, 11, 51, 101, 201, 401,
+      uk_covid19_shp %>% 
+        pull(seven_day_rate_newCasesBySpecimenDate) %>%
+        max() %>%
+        ceiling()
+    ),
     as.count = TRUE,
     palette = "viridis",
     #border.col = "#cccccc",
