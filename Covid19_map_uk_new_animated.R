@@ -142,7 +142,11 @@ coronavirus_cases <-
     covid19_area_code = code
   ) %>%
   mutate(
-    covid19_week_ending = covid19_date %>% lubridate::ymd() %>% lubridate::ceiling_date(unit = "week") %>% format('%Y-%m-%d')
+    covid19_week_ending = covid19_date %>% 
+      lubridate::ymd() %>% 
+      lubridate::ceiling_date(unit = "week") %>%
+      `-` (lubridate::days(1)) %>%
+      format('%Y-%m-%d')
   ) %>%
   group_by(covid19_area_name, covid19_area_code, covid19_week_ending) %>%
   summarise(
